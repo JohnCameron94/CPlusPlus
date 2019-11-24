@@ -42,6 +42,7 @@ Animation::~Animation() {
 	if (!frames.empty()) {
 		//loop through list and deallocate memory
 			for(it = frames.begin(); it!=frames.end(); it++)
+				//delete allocated memory
 				delete* it;
 		
 	}

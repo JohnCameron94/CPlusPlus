@@ -19,6 +19,7 @@ using namespace std;
 #define _CRT_SECURE_NO_WARNINGS
 #include <crtdbg.h>
 #include <iostream>
+#include <forward_list>
 #include <string>
 #include "Frame.h"
 #include "AudioFrame.h"
