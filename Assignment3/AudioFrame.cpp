@@ -21,6 +21,8 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <forward_list>
+#include <deque>
 #include "Frame.h"
 #include "AudioFrame.h"
 #include "VideoFrame.h"
@@ -44,6 +46,7 @@ void AudioFrame::CalculateFrameResource() {
 	}
 
 	//Formatted compression output
+	cout << static_cast<Frame&>(*this);
 	cout << "MP3 Lossy Compression"<< endl;
 	cout << "---------------------------------------------------------------------------------------------" << endl;
 	cout << "bitrate:"<< setw(9) << "|" << this->BITRATE[0] << setw(7) << "|" << this->BITRATE[1] << setw(7) << "|" << this->BITRATE[2]<< endl;

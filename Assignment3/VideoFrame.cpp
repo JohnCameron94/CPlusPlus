@@ -22,6 +22,8 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <forward_list>
+#include <deque>
 #include "Frame.h"
 #include "AudioFrame.h"
 #include "VideoFrame.h"
@@ -46,7 +48,8 @@ void VideoFrame::CalculateFrameResource() {
 	for (int i = 0; i < byteSize; i++) {
 		result[i] = this->size / (this->COMPRESSION_RATIO * this->BITDEPTH_FACTOR[i]);
 	}
-	//cout <<*this<<(Frame&)*this<<endl;
+	//print Type and frame name
+	cout << static_cast<Frame&>(*this);
 	//Formatted Print out for compression calculation
 	cout << "Lempel-Ziv-Welch Lossless Compression" << endl;
 	cout << "---------------------------------------------------------------------------------------------" << endl;
@@ -74,7 +77,5 @@ Author: Johnathon Cameron
 ostream& operator<<(ostream& out, VideoFrame& vidFrame) {
 	//output VideoFrame
 	out << "Video Frame: ";
-
-
 	return out;
 }

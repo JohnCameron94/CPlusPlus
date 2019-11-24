@@ -155,9 +155,10 @@ ostream& operator<<(ostream& out, Animation& RA) {
 	if (RA.frames.empty())
 		out << "	No frames" << endl;
 	else {
+		//iterate through the frames forwardList
 		for (it = RA.frames.begin(); it != RA.frames.end(); it++) {
 			out << "Frame #" << counter++ << endl;
-			out << (**it);
+			//calculate the frames ressources
 			(*it)->CalculateFrameResource();
 		}
 	}
@@ -227,7 +228,7 @@ istream& operator>>(istream& in, Animation& RA) {
 				break;
 
 			}
-
+			//pushing frame to front
 			RA.frames.push_front(vF);
 			
 	

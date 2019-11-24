@@ -35,6 +35,7 @@ Version : 1.0
 Author : Johnathon Cameron
 *****************************************/
 void AnimationManager::EditAnimation() {
+	
 	//check if vector is empty
 	if (animations.empty()) {
 		cout << "No Animations to Edit" << endl;
@@ -99,16 +100,22 @@ Author : Johnathon Cameron
 *****************************************/
 istream& operator>>(istream& in, AnimationManager& mngr) {
 
+
 	//animation name storage
 	string anName;
 
 	//Prompt user for animation name
 	cout << "Please Enter Animation Name" << endl;
 	in >> anName;
-	Animation RA(anName);
+	//check if animation is empty, reserve the size to avoid destructor calls
+	if (mngr.animations.empty()) {
 
-	//creating and adding new animation to back of vector
-		mngr.animations.push_back(RA);
+		//reserving size of vecort limiting the size(temporary fix) 
+		mngr.animations.reserve(64);
+	}
+	//push new animation object to back of the vector
+	mngr.animations.push_back(Animation(anName));
+
 	//returning istream
 	return in;
 
